@@ -1,0 +1,14 @@
+# Build output
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+
+# Publish profiles (optional)
+*.publish.xml
+
+# VS Code/VS Settings
+.vscode/
+*.vs/
