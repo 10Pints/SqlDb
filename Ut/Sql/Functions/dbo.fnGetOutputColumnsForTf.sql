@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ================================================================================================
@@ -32,10 +31,10 @@ BEGIN
    SELECT ordinal_position, column_name, data_type, iif(is_nullable='YES', 1,0), is_chr
    FROM list_tf_output_columns_vw
    WHERE table_schema = @schema_nm AND table_name = @rtn_nm
+
    RETURN;
 END
 /*
   SELECT * FROM dbo.fnGetOutputColumnsForTf('dbo', 'fnClassCreator');
 */
 GO
-

@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ====================================================================
@@ -15,6 +14,7 @@ BEGIN
    DECLARE @ty   NVARCHAR(500)
    SELECT @type = SQL_VARIANT_PROPERTY(@v, 'BaseType');
    SET @ty = CONVERT(NVARCHAR(500), @type);
+
    RETURN
       CASE 
          WHEN @ty = 'bit'             THEN  1
@@ -22,4 +22,3 @@ BEGIN
          END;
 END
 GO
-

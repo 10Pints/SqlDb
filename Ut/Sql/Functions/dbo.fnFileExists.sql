@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ===============================================================
@@ -22,4 +21,3 @@ EXEC master.dbo.xp_fileexist 'D:\Dev\Ut\Tests\hlpr_096_GetFileDetails.sql', @res
 PRINT @result;
 */
 GO
-

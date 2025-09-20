@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
@@ -14,4 +13,3 @@ BEGIN
    RETURN NCHAR(13)+NCHAR(10)
 END
 GO
-

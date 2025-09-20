@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
@@ -28,6 +27,7 @@ BEGIN
       FROM sys.columns
       WHERE object_id=object_id(@q_rtn_nm)
       ORDER BY column_id;
+
    RETURN;
 END
 /*

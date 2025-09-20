@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ==========================================================================================
@@ -20,6 +19,7 @@ BEGIN
        @res       BIT = 0
       ,@i         INT = 1
       ,@len       INT = dbo.fnLen(@s)
+
    WHILE @i <= @len
    BEGIN
       IF dbo.fnIswhitespace(SUBSTRING(@s, @i, 1))=1
@@ -27,9 +27,12 @@ BEGIN
          SET @res = 1;
          break;
       END
+
       SET @i = @i + 1;
    END
+
    RETURN @res;
 END
+
 GO
 

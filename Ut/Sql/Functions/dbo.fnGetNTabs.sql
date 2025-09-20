@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ================================================================================================
@@ -18,6 +17,7 @@ BEGIN
 END
 /*
 EXEC tSQLt.Run 'test.test_086_sp_crt_tst_hlpr_script';
+
   PRINT CONCAT('[',dbo.fnGetNTabs(NULL),']');
   PRINT CONCAT('[',dbo.fnGetNTabs(-1),']');
   PRINT CONCAT('[',dbo.fnGetNTabs(0),']');
@@ -25,4 +25,3 @@ EXEC tSQLt.Run 'test.test_086_sp_crt_tst_hlpr_script';
   PRINT CONCAT('[',dbo.fnGetNTabs(3),']');
 */
 GO
-

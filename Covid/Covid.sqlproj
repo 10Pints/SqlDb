@@ -1,12 +1,27 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
-    <Configuration>Debug</Configuration>
-    <Platform>AnyCPU</Platform>
-    <ProjectGuid>{B2C3D4E5-F6A7-8901-BCDE-F23456789012}</ProjectGuid>
-    <ProjectName>Covid</ProjectName>
-    <SqlTargetName>Covid.dacpac</SqlTargetName>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{b2c3d4e5-f6a7-8901-bcde-f23456789012}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql160DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootNamespace>Covid</RootNamespace>
+    <AssemblyName>Covid</AssemblyName>
     <TargetDatabaseName>$(DatabaseName)</TargetDatabaseName>
+    <SchemaVersion>2.0</SchemaVersion>
+    <SqlTargetName>Covid.dacpac</SqlTargetName>
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Debug'">
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)'=='Release'">
+    <TreatTSqlWarningsAsErrors>True</TreatTSqlWarningsAsErrors>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="ut">
@@ -29,6 +44,126 @@
     <Build Include="sql\Tables\Cases.sql" />
     <Build Include="sql\StoredProcedures\DataLoad\sp_LoadCovidData.sql" />
     <Build Include="sql\Scripts\PreDeployment.sql" />
+    <Build Include="sql\Functions\dbo.fn_total_vaccinations.sql" />
+    <Build Include="sql\Functions\dbo.fn_total_vaccinations_2.sql" />
+    <Build Include="sql\Functions\dbo.fn_total_vaccinations2.sql" />
+    <Build Include="sql\Functions\dbo.fnCalcSRatio.sql" />
+    <Build Include="sql\Functions\dbo.fnCaseSensistiveCompare.sql" />
+    <Build Include="sql\Functions\dbo.fnChkEquals.sql" />
+    <Build Include="sql\Functions\dbo.fnChkRtnExists.sql" />
+    <Build Include="sql\Functions\dbo.fnCompareFloats.sql" />
+    <Build Include="sql\Functions\dbo.fnCompareFloats2.sql" />
+    <Build Include="sql\Functions\dbo.fnContainsWhitespace.sql" />
+    <Build Include="sql\Functions\dbo.fnCreateTrendSql.sql" />
+    <Build Include="sql\Functions\dbo.fnDeltaStats.sql" />
+    <Build Include="sql\Functions\dbo.fnDeSquareBracket.sql" />
+    <Build Include="sql\Functions\dbo.fnFileExists.sql" />
+    <Build Include="sql\Functions\dbo.fnFixupCountryName.sql" />
+    <Build Include="sql\Functions\dbo.fnGetAvgDeltaConfpp.sql" />
+    <Build Include="sql\Functions\dbo.fnGetBestCountries.sql" />
+    <Build Include="sql\Functions\dbo.fnGetFnOutputCols.sql" />
+    <Build Include="sql\Functions\dbo.fnGetFullTypeName.sql" />
+    <Build Include="sql\Functions\dbo.fnGetJHImportType.sql" />
+    <Build Include="sql\Functions\dbo.fnGetLogCache.sql" />
+    <Build Include="sql\Functions\dbo.fnGetLogCacheKey.sql" />
+    <Build Include="sql\Functions\dbo.fnGetLogLevel.sql" />
+    <Build Include="sql\Functions\dbo.fnGetLogLevelKey.sql" />
+    <Build Include="sql\Functions\dbo.fnGetNL.sql" />
+    <Build Include="sql\Functions\dbo.fnGetNTabs.sql" />
+    <Build Include="sql\Functions\dbo.fnGetOutputColumnsForTf.sql" />
+    <Build Include="sql\Functions\dbo.fnGetProcedureDetails.sql" />
+    <Build Include="sql\Functions\dbo.fnGetRoutineDetails.sql" />
+    <Build Include="sql\Functions\dbo.fnGetRtnDef.sql" />
+    <Build Include="sql\Functions\dbo.fnGetRtnDetails.sql" />
+    <Build Include="sql\Functions\dbo.fnGetTableDetails.sql" />
+    <Build Include="sql\Functions\dbo.fnGetTyNmFrmTyCode.sql" />
+    <Build Include="sql\Functions\dbo.fnGetWasCachingLogKey.sql" />
+    <Build Include="sql\Functions\dbo.fnIsBool.sql" />
+    <Build Include="sql\Functions\dbo.fnIsCharType.sql" />
+    <Build Include="sql\Functions\dbo.fnIsDateTime.sql" />
+    <Build Include="sql\Functions\dbo.fnIsFloat.sql" />
+    <Build Include="sql\Functions\dbo.fnIsGuid.sql" />
+    <Build Include="sql\Functions\dbo.fnIsInt.sql" />
+    <Build Include="sql\Functions\dbo.fnIsLessThan.sql" />
+    <Build Include="sql\Functions\dbo.fnIsString.sql" />
+    <Build Include="sql\Functions\dbo.fnIsWhitespace.sql" />
+    <Build Include="sql\Functions\dbo.fnJHCsvFilePathToDate.sql" />
+    <Build Include="sql\Functions\dbo.fnLen.sql" />
+    <Build Include="sql\Functions\dbo.fnLTrim.sql" />
+    <Build Include="sql\Functions\dbo.fnLTrim2.sql" />
+    <Build Include="sql\Functions\dbo.fnMax.sql" />
+    <Build Include="sql\Functions\dbo.fnPadRight.sql" />
+    <Build Include="sql\Functions\dbo.fnPadRight2.sql" />
+    <Build Include="sql\Functions\dbo.fnPerCapita.sql" />
+    <Build Include="sql\Functions\dbo.fnPerCentOfPop.sql" />
+    <Build Include="sql\Functions\dbo.fnPerCentOfPop2.sql" />
+    <Build Include="sql\Functions\dbo.fnpL.sql" />
+    <Build Include="sql\Functions\dbo.fnpL2.sql" />
+    <Build Include="sql\Functions\dbo.fnpr.sql" />
+    <Build Include="sql\Functions\dbo.fnpr2.sql" />
+    <Build Include="sql\Functions\dbo.fnProcessStageImport.sql" />
+    <Build Include="sql\Functions\dbo.fnRTrim.sql" />
+    <Build Include="sql\Functions\dbo.fnRTrim2.sql" />
+    <Build Include="sql\Functions\dbo.fnstringToDate.sql" />
+    <Build Include="sql\Functions\dbo.fnTrim.sql" />
+    <Build Include="sql\Functions\dbo.fnTrim2.sql" />
+    <Build Include="sql\Functions\dbo.fnWasCachingLog.sql" />
+    <Build Include="sql\Functions\test.fnCreateTestRtnName.sql" />
+    <Build Include="sql\Functions\test.fnCrtCodeDropRtn.sql" />
+    <Build Include="sql\Functions\test.fnCrtCodeMnTstSig.sql" />
+    <Build Include="sql\Functions\test.fnCrtCodeTstHdr.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeBegin.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeCallBloc.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeCallFn.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeCallProc.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeCallTF.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeChkExps.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeCloseBloc.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeDecl.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeDeclActParams.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeDeclCoreParams.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeHlprSig.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeTestBloc.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeTestBlocFn.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeTestBlocSp.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeTestBlocTf.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprCodeTestExpParam.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprSigExpParams.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprSigExpParamsFn.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprSigExpParamsSp.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprSigExpParamsTf.sql" />
+    <Build Include="sql\Functions\test.fnCrtHlprSigParams.sql" />
+    <Build Include="sql\Functions\test.fnCrtMnCodeCallHlpr.sql" />
+    <Build Include="sql\Functions\test.fnCrtMnCodeClose.sql" />
+    <Build Include="sql\Functions\test.fnCrtScriptFileName.sql" />
+    <Build Include="sql\Functions\test.fnCrtScrptFileNm.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntFailedTstNumKey.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntFailedTstSubNumKey.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTst1OffSetupFnKey.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstClsFn.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstClsFnKey.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstdFn.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstdFnKey.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstErrSt.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstErrStKey.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstFn.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstFnKey.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstHlprFnKey.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstNum.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstNumKey.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstSetupFnKey.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstSubNum.sql" />
+    <Build Include="sql\Functions\test.fnGetCrntTstSubNumKey.sql" />
+    <Build Include="sql\Functions\test.fnGetDisplayLogFlg.sql" />
+    <Build Include="sql\Functions\test.fnGetDisplayLogFlgKey.sql" />
+    <Build Include="sql\Functions\test.fnGetNxtTstRtnNum.sql" />
+    <Build Include="sql\Functions\test.fnGetParamWithSuffix.sql" />
+    <Build Include="sql\Functions\test.fnGetRtnDesc.sql" />
+    <Build Include="sql\Functions\test.fnGetTstPassCnt.sql" />
+    <Build Include="sql\Functions\test.fnGetTstPassCntKey.sql" />
+    <Build Include="sql\Functions\test.fnSplitQualifiedName.sql" />
+    <Build Include="sql\Misc\tSQLtCLR.sql" />
+    <Build Include="sql\Scripts\PostDeployment.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="DatabaseName">

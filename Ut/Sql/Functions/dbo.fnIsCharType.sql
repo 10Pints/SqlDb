@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ==================================================
@@ -18,10 +17,13 @@ BEGIN
    DECLARE 
     @rc     BIT
    ,@n      INT
+
    -- Trim possible aray (num) like NVARCHAR(100)
    SET @n = CHARINDEX('(', @type);
+
    IF @n > 0
       SET @type = SUBSTRING( @type, 1, @n-1);
+
    SET @rc = CASE
       WHEN @type = 'CHAR'     THEN 1
       WHEN @type = 'NCHAR'    THEN 1
@@ -31,7 +33,7 @@ BEGIN
       WHEN @type = 'TEXT'     THEN 1
       ELSE 0
    END
+
    RETURN @rc;
 END
 GO
-

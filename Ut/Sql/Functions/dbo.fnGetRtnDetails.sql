@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ============================================================================================================================
@@ -26,17 +25,22 @@ RETURNS @t TABLE
    ,ty_code       NVARCHAR(25)
    ,is_clr        BIT
 )
+
 AS
 BEGIN
    DECLARE
        @schema       NVARCHAR(20)
       ,@rtn_nm       NVARCHAR(4000)
       ,@ty_nm        NVARCHAR(20)
+   ;
+
    SELECT
        @schema = schema_nm
       ,@rtn_nm = rtn_nm
    FROM test.fnSplitQualifiedName(@qrn);
+
    SELECT @ty_nm = ty_nm FROM dbo.sysRtns_vw WHERE schema_nm = @schema and rtn_nm = 'fn_CamelCase';
+
    INSERT INTO @t 
    (
        schema_nm
@@ -52,14 +56,15 @@ BEGIN
       ,ty_code  
       ,is_clr   
    FROM dbo.sysRtns_vw WHERE schema_nm = @schema and rtn_nm = @rtn_nm;
+
    RETURN;
 END
 /*
 PRINT 
 EXEC tSQLt.Run 'test.test_029_fnChkRtnExists';
+
 SELECT * FROM [dbo].[fnGetRtnDetails]('[dbo].[fnDeltaStats]');
 SELECT * FROM [dbo].[fnGetRtnDetails]('[dbo].[fnIsCharType]');
 SELECT * FROM [dbo].[fnGetRtnDetails]('sp_assert_rtn_exists');
 */
 GO
-
