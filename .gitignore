@@ -1,14 +1,27 @@
-# Build output
+# Visual Studio / SSDT
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
 bin/
 obj/
-*.user
-*.suo
-*.cache
+*.dacpac
+*.publish.xml
+SqlCmdFiles/
+publish/
+*.sqlpublish
+
+# Logs
+Logs/*
 *.log
 
-# Publish profiles (optional)
-*.publish.xml
+# OS
+Thumbs.db
+.DS_Store
 
-# VS Code/VS Settings
-.vscode/
-*.vs/
+# Other
+[Dd]ebug/
+[Rr]elease/
+.vs/
+.git/
+*.pdb

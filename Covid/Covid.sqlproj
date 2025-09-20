@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration>Debug</Configuration>
+    <Platform>AnyCPU</Platform>
+    <ProjectGuid>{B2C3D4E5-F6A7-8901-BCDE-F23456789012}</ProjectGuid>
+    <ProjectName>Covid</ProjectName>
+    <SqlTargetName>Covid.dacpac</SqlTargetName>
+    <TargetDatabaseName>$(DatabaseName)</TargetDatabaseName>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="ut">
+      <HintPath>..\ut\ut.dacpac</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="sql\" />
+    <Folder Include="sql\Functions\" />
+    <Folder Include="sql\Misc\" />
+    <Folder Include="sql\StoredProcedures\" />
+    <Folder Include="sql\StoredProcedures\DataLoad\" />
+    <Folder Include="sql\StoredProcedures\Analysis\" />
+    <Folder Include="sql\Tables\" />
+    <Folder Include="sql\UserDefinedTypes\" />
+    <Folder Include="sql\Views\" />
+    <Folder Include="sql\Scripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="sql\Tables\Cases.sql" />
+    <Build Include="sql\StoredProcedures\DataLoad\sp_LoadCovidData.sql" />
+    <Build Include="sql\Scripts\PreDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <SqlCmdVariable Include="DatabaseName">
+      <Value>CovidDB</Value>
+    </SqlCmdVariable>
+  </ItemGroup>
+</Project>
