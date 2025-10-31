@@ -1,11 +1,11 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ==============================================================================================
 -- Author:      Terry Watts
 -- Create date: 16-APR-2024
 -- Description: creates the test helper code for a scalar fn
+
 -- Preconditions:
 --    test.rtnDetails and test.ParamDetails populated
 --
@@ -27,30 +27,36 @@ BEGIN
    ,@qrn             NVARCHAR(100)
    ,@ad_stp          BIT
    ,@st_inp_ordinal  INT
+
    SELECT
        @qrn    = qrn
       ,@ad_stp = ad_stp
    FROM test.RtnDetails;
+
    INSERT INTO @t (line) VALUES
     (CONCAT(@tab2,'DROP TABLE IF EXISTS test.results', IIF(@ad_stp = 1 ,' -- CALL-TF', '')))
    ,(CONCAT(@tab2,''))
    ,(CONCAT(@tab2,'SELECT * INTO test.Results FROM ', @qrn))
    ,(CONCAT(@tab2,'('))
    ;
+
    SELECT @st_inp_ordinal = MIN(ordinal)
    FROM test.ParamDetails 
    WHERE tst_ty='INP'
    ;
+
    -- Add params
    INSERT INTO @t (line) 
    SELECT CONCAT( @tab3, iif(ordinal = @st_inp_ordinal,' ',',') , '@inp_', param_nm)
    FROM test.ParamDetails
    WHERE tst_ty ='INP';
+
    -- close off fn ()
    INSERT INTO @t (line) VALUES
     (CONCAT(@tab2,')'))
    ,(CONCAT(@tab2,''))
    ;
+
    RETURN;
 END
 /*
@@ -62,4 +68,3 @@ SELECT * FROM test.fnCrtHlprCodeCallTF();
 SELECT * FROM test.ParamDetails;
 */
 GO
-

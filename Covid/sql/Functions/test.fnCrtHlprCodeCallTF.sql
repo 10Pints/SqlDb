@@ -1,9 +1,6 @@
 SET ANSI_NULLS ON
-
 SET QUOTED_IDENTIFIER ON
-
 GO
-
 -- ==============================================================================================
 -- Author:      Terry Watts
 -- Create date: 16-APR-2024
@@ -70,5 +67,4 @@ EXEC tSQLt.Run 'test.test_068_sp__crt_tst_rtns_TF';
 SELECT * FROM test.fnCrtHlprCodeCallTF();
 SELECT * FROM test.ParamDetails;
 */
-
 GO

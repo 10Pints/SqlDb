@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ===========================================================================
@@ -25,14 +24,17 @@ BEGIN
    ,@ad_stp       BIT
    ,@max_prm_len  INT
    ,@line         NVARCHAR(60) = REPLICATE('-', 60)
+
    SELECT
        @qrn          = qrn
       ,@ad_stp       = ad_stp
       ,@max_prm_len  = max_prm_len
    FROM test.RtnDetails;
+
    IF @ad_stp = 1
       INSERT INTO @rtnDef (line) VALUES
       (CONCAT(@tab2, '-- fnCrtHlprCodeChkExps',''))
+
    INSERT INTO @rtnDef (line) SELECT
       CONCAT
       (
@@ -45,6 +47,7 @@ BEGIN
       )
    FROM test.ParamDetails
    WHERE tst_ty = 'EXP';
+
    RETURN;
 END
 /*
@@ -53,4 +56,3 @@ EXEC tSQLt.Run 'test.test_086_sp_crt_tst_hlpr_script';
 EXEC tSQLt.RunAll;
 */
 GO
-

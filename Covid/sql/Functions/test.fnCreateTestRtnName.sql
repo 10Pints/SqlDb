@@ -1,9 +1,6 @@
 SET ANSI_NULLS ON
-
 SET QUOTED_IDENTIFIER ON
-
 GO
-
 -- =============================================
 -- Author:      Terry watts
 -- Create date: 05-JUL-2020
@@ -36,5 +33,4 @@ END
 /*
 PRINT test.fnCreateTestRtnName('sp_exprt_to_xl', 51, 'M');
 */
-
 GO

@@ -1,9 +1,6 @@
 SET ANSI_NULLS ON
-
 SET QUOTED_IDENTIFIER ON
-
 GO
-
 -- =============================================
 -- Author:      Terry Watts
 -- Create date: 16-DEC-2021
@@ -36,5 +33,4 @@ PRINT CONCAT('[', dbo.fnRTrim2(' ', NULL), ']
 PRINT CONCAT('[', dbo.fnRTrim2('', NULL), ']');
 IF dbo.fnRTrim2(NULL, NULL) IS NULL PRINT 'IS NULL';
 */
-
 GO

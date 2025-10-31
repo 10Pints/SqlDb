@@ -1,9 +1,6 @@
 SET ANSI_NULLS ON
-
 SET QUOTED_IDENTIFIER ON
-
 GO
-
 -- ====================================================================================
 -- Author:      Terry Watts
 -- Create date: 16-APR-2024
@@ -43,5 +40,4 @@ END
 /*
 SELECT * FROM test.fnCrtCodeMnTstSig()
 */
-
 GO

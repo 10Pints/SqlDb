@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ===========================================
@@ -15,4 +14,3 @@ BEGIN
    RETURN [dbo].[fnPadLeft]( @s, @width);
 END
 GO
-

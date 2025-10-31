@@ -10,6 +10,10 @@ Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Covid", "Covid\Covid.sqlpro
 		{A1B2C3D4-E5F6-7890-ABCD-EF1234567890} = {A1B2C3D4-E5F6-7890-ABCD-EF1234567890}
 	EndProjectSection
 EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Dorsu_dev", "Dorsu_dev\Dorsu_dev.sqlproj", "{0A10EF81-1B69-4257-81CA-FE413D54D17C}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CRM", "CRM\CRM.sqlproj", "{EDFA3352-E50B-4FB5-9406-C286AF545C92}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,12 @@ Global
 		{B2C3D4E5-F6A7-8901-BCDE-F23456789012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B2C3D4E5-F6A7-8901-BCDE-F23456789012}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2C3D4E5-F6A7-8901-BCDE-F23456789012}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{0A10EF81-1B69-4257-81CA-FE413D54D17C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A10EF81-1B69-4257-81CA-FE413D54D17C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A10EF81-1B69-4257-81CA-FE413D54D17C}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{EDFA3352-E50B-4FB5-9406-C286AF545C92}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDFA3352-E50B-4FB5-9406-C286AF545C92}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDFA3352-E50B-4FB5-9406-C286AF545C92}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

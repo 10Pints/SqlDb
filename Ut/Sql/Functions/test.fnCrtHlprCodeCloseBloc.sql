@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================================
@@ -29,10 +28,12 @@ BEGIN
    ,@sc_fn_ret_ty       NVARCHAR(50)
    ,@ad_stp             BIT = 0
    ,@tst_rtn_nm         NVARCHAR(60)
+
    SELECT
        @tst_rtn_nm = tst_rtn_nm
       ,@ad_stp     = ad_stp
    FROM test.RtnDetails;
+
    INSERT INTO @t (line) VALUES
     ('')
    ,(CONCAT(@tab2,'-- CLEANUP:', IIF(@ad_stp=1, ' -- fnCrtHlprCodeCloseBloc','')))
@@ -52,6 +53,7 @@ BEGIN
    ,(CONCAT(@tab1,'EXEC tSQLt.RunAll;'))
    ,('*/')
    ;
+
    RETURN;
 END
 /*
@@ -59,4 +61,3 @@ EXEC tSQLt.Run 'test.test_086_sp_crt_tst_hlpr_script';
 EXEC tSQLt.RunAll;
 */
 GO
-

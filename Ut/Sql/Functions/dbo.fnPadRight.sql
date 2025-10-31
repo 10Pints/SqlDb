@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================    
@@ -23,4 +22,3 @@ FROM [tg].[test].[fnCrtPrmMap]( '          @table_nm                  NVARCHAR(5
          ,@error_msg                 NVARCHAR(200)   OUTPUT  ')
 */
 GO
-

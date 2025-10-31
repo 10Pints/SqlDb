@@ -1,9 +1,6 @@
 SET ANSI_NULLS ON
-
 SET QUOTED_IDENTIFIER ON
-
 GO
-
 -- ===============================================================================================
 -- Author:      Terry Watts
 -- Create date: 13-JAN-2020
@@ -22,5 +19,4 @@ BEGIN
                            ,NCHAR(13), NCHAR(14), NCHAR(32), NCHAR(160)) THEN 1 
                ELSE 0 END
 END
-
 GO

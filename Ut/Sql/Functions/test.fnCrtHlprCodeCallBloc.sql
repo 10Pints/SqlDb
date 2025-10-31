@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ==============================================================================================
@@ -29,39 +28,47 @@ BEGIN
    ,@qrn          NVARCHAR(100)
    ,@rtn_ty_code  NVARCHAR(2)
    ,@ad_stp       BIT
+
    SELECT
        @rtn_ty_code = rtn_ty_code
       ,@ad_stp      = ad_stp
    FROM test.RtnDetails
+
    IF @ad_stp = 1
       INSERT INTO @t (line) VALUES
       (CONCAT(@tab2,'-- fnCrtHlprCodeCallBloc'));
+
    INSERT INTO @t (line) VALUES
      (CONCAT(@tab2,'-- RUN tested procedure:', IIF( @ad_stp = 1,CONCAT(' -- SP-RN-TST fn ty: ',@rtn_ty_code),'')))
     ,(CONCAT(@tab2,'EXEC sp_log 1, @fn, ''005: running ',@qrn,''';'))
     ,('')
     ;
+
    WHILE 1=1
    BEGIN
       INSERT INTO @t (line) VALUES( CONCAT(@tab2, '-- @rtn_ty_code:', @rtn_ty_code));
+
       IF @rtn_ty_code = 'P'
       BEGIN
          INSERT INTO @t (line)
             SELECT line FROM test.fnCrtHlprCodeCallProc();
          BREAK;
       END
+
       IF @rtn_ty_code = 'FN'
       BEGIN
          INSERT INTO @t (line)
             SELECT line FROM test.fnCrtHlprCodeCallFn();
          BREAK;
       END
+
       IF @rtn_ty_code = 'TF'
       BEGIN
          INSERT INTO @t (line)
             SELECT line FROM test.fnCrtHlprCodeCallTF();
          BREAK;
       END
+
       -- if here then unrecognised @rtn_ty_code
       INSERT INTO @t (line) VALUES( CONCAT('-- Unrecognised @rtn_ty_code:', @rtn_ty_code));
       BREAK;
@@ -77,4 +84,3 @@ SELECT * FROM test.fnCrtHlprCodeCall('TF',1);
 SELECT * FROM test.RtnDetails;
 */
 GO
-

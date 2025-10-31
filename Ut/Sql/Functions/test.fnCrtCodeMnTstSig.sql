@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ====================================================================================
@@ -27,16 +26,18 @@ AS
 BEGIN
    DECLARE
    @tst_rtn_nm   NVARCHAR(50)
+
    SELECT
       @tst_rtn_nm = tst_rtn_nm
    FROM test.RtnDetails;
+
    INSERT INTO @t( line)
    VALUES
        (CONCAT('CREATE PROCEDURE test.', @tst_rtn_nm))
+
    RETURN;
 END
 /*
 SELECT * FROM test.fnCrtCodeMnTstSig()
 */
 GO
-

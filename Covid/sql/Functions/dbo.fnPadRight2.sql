@@ -1,9 +1,6 @@
 SET ANSI_NULLS ON
-
 SET QUOTED_IDENTIFIER ON
-
 GO
-
 -- =============================================    
 -- Author:      Terry Watts
 -- Create date: 23-JUN-2023
@@ -33,5 +30,4 @@ SELECT CONCAT('[', ut.dbo.fnPadRight2('a very long string indeed - its about tim
 SELECT CONCAT('[', ut.dbo.fnPadRight2('', 25, '.'), ']  ');
 SELECT CONCAT('[', ut.dbo.fnPadRight2(NULL, 25, '.'), ']  ');
 */
-
 GO

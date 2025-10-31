@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ==============================================================================================
@@ -31,20 +30,24 @@ BEGIN
     @tab            NVARCHAR(3) = '   '
    ,@ad_stp         BIT
    ,@max_prm_len    INT
+
    SELECT
        @max_prm_len  = max_prm_len
       ,@ad_stp       = ad_stp
    FROM
       test.RtnDetails;
+
    ------------------------------------------------------------------------------------------------
    -- Add the As - BEGIN-DECL
    ------------------------------------------------------------------------------------------------
    INSERT INTO @t (line) VALUES
     (CONCAT('AS', IIF(@ad_stp = 1 ,' -- fnCrtHlprCodeBegin', '')))
    ,('BEGIN')
+
    INSERT INTO @t(line)
    SELECT line
    FROM test.fnCrtHlprCodeDecl();
+
    INSERT INTO @t (line) VALUES
     ('')
    ,(CONCAT(@tab,'BEGIN TRY'))
@@ -54,14 +57,15 @@ BEGIN
    ,(CONCAT(@tab,@tab,'-- <TBA>:'))
    ,('')
    ;
+
    RETURN;
 END
 /*
 SELECT * FROM test.fnCrtHlprCodeBegin();
 EXEC test.sp_get_rtn_details 'dbo.sp_class_creator', @ad_stp=1, @display_tables = 1;
 EXEC tSQLt.Run 'test.test_086_sp_crt_tst_hlpr_script';
+
 EXEC tSQLt.RunAll;
 SELECT * FROM test.RtnDetails;
 */
 GO
-

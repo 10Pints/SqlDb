@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
@@ -17,14 +16,18 @@ RETURNS  NVARCHAR(MAX)
 AS
 BEGIN
    DECLARE @len INT;
+
    IF @str IS NOT NULL AND @trim_chr IS NOT NULL
       WHILE Left(@str, 1) = @trim_chr
       BEGIN
          SET @len = dbo.fnLen(@str)-1;
+
          IF @len < 0
             BREAK;
+
          SET @str = Substring(@str, 2, dbo.fnLen(@str)-1);
       END
+
    RETURN @str
 END
 /*
@@ -41,4 +44,3 @@ PRINT CONCAT('10:[', dbo.fnLTrim2('', NULL), ']');
 IF dbo.fnLTrim2(NULL, NULL) IS NULL PRINT 'IS NULL';
 */
 GO
-

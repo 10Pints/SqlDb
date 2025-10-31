@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
@@ -35,4 +34,3 @@ END
 PRINT test.fnCreateTestRtnName('sp_exprt_to_xl', 51, 'M');
 */
 GO
-

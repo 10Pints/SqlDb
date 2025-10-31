@@ -1,9 +1,6 @@
 SET ANSI_NULLS ON
-
 SET QUOTED_IDENTIFIER ON
-
 GO
-
 -- ===============================================================
 -- Author:      Terry Watts
 -- Create date: 08-JAN-2020
@@ -15,5 +12,4 @@ AS
 BEGIN
    RETURN Len(@v+'x')-1;
 END
-
 GO

@@ -1,0 +1,14 @@
+﻿
+
+
+
+CREATE FUNCTION [dbo].[fnMin] (@p1 INT, @p2 INT)
+RETURNS INT
+AS
+BEGIN
+   RETURN CASE WHEN @p1 > @p2 THEN @p2 ELSE @p1 END;
+END
+
+
+
+

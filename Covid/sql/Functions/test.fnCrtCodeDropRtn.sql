@@ -1,9 +1,6 @@
 SET ANSI_NULLS ON
-
 SET QUOTED_IDENTIFIER ON
-
 GO
-
 -- ======================================================
 -- Author:      Terry Watts
 -- Create date: 16-Dec-2023
@@ -51,5 +48,4 @@ END
    SELECT * FROM test.fnCrtCodeTstHdr('test.sp_crt_tst_hlpr_script', 1)
    SELECT * FROM test.RtnDetails;
 */
-
 GO

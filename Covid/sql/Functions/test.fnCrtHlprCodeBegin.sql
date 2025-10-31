@@ -1,9 +1,6 @@
 SET ANSI_NULLS ON
-
 SET QUOTED_IDENTIFIER ON
-
 GO
-
 -- ==============================================================================================
 -- Author:      Terry Watts
 -- Create date: 17-Dec-2023
@@ -71,5 +68,4 @@ EXEC tSQLt.Run 'test.test_086_sp_crt_tst_hlpr_script';
 EXEC tSQLt.RunAll;
 SELECT * FROM test.RtnDetails;
 */
-
 GO

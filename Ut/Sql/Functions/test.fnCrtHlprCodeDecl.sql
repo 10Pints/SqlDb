@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =================================================
@@ -19,22 +18,26 @@ BEGIN
    DECLARE
      @tab1              NCHAR(3) = '   '
     ,@ad_stp            BIT
+
     SELECT
       @ad_stp           = ad_stp
     FROM test.RtnDetails
+
 IF @ad_stp = 1
       INSERT INTO @t (line) VALUES
       (CONCAT(@tab1, '-- fnCrtHlprCodeDecl'))
+
    INSERT INTO @t (line)
    SELECT line
    FROM test.fnCrtHlprCodeDeclCoreParams();
+
    INSERT INTO @t (line)
    SELECT line
    FROM test.fnCrtHlprCodeDeclActParams();
+
    RETURN;
 END
 /*
 SELECT line from test.fnCrtHlprCodeDecl();
 */
 GO
-

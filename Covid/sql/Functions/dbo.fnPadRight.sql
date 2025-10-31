@@ -1,9 +1,6 @@
 SET ANSI_NULLS ON
-
 SET QUOTED_IDENTIFIER ON
-
 GO
-
 -- =============================================    
 -- Author:  Terry Watts
 -- Create date: 04-OCT-2019
@@ -24,5 +21,4 @@ FROM [tg].[test].[fnCrtPrmMap]( '          @table_nm                  NVARCHAR(5
          ,@view_nm                   NVARCHAR(50)    OUTPUT  
          ,@error_msg                 NVARCHAR(200)   OUTPUT  ')
 */
-
 GO

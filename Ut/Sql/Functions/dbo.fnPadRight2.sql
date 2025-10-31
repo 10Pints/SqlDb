@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================    
@@ -19,8 +18,10 @@ BEGIN
    DECLARE 
       @ret  NVARCHAR(1000)
      ,@len  INT
+
    IF @s IS null
       SET @s = '';
+
    SET @len = ut.dbo.fnLen(@s)
    RETURN LEFT( CONCAT( @s, REPLICATE( @pad, @width-@len)), @width)
 END
@@ -30,4 +31,3 @@ SELECT CONCAT('[', ut.dbo.fnPadRight2('', 25, '.'), ']  ');
 SELECT CONCAT('[', ut.dbo.fnPadRight2(NULL, 25, '.'), ']  ');
 */
 GO
-

@@ -1,9 +1,6 @@
 SET ANSI_NULLS ON
-
 SET QUOTED_IDENTIFIER ON
-
 GO
-
 -- ==========================================================================
 -- Author:      Terry Watts
 -- Create date: 08-JAN-2020
@@ -30,5 +27,4 @@ BEGIN
 
    RETURN @s;
 END
-
 GO

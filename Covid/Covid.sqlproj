@@ -39,11 +39,11 @@
     <Folder Include="sql\UserDefinedTypes\" />
     <Folder Include="sql\Views\" />
     <Folder Include="sql\Scripts\" />
+    <Folder Include="Scripts" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="sql\Tables\Cases.sql" />
     <Build Include="sql\StoredProcedures\DataLoad\sp_LoadCovidData.sql" />
-    <Build Include="sql\Scripts\PreDeployment.sql" />
     <Build Include="sql\Functions\dbo.fn_total_vaccinations.sql" />
     <Build Include="sql\Functions\dbo.fn_total_vaccinations_2.sql" />
     <Build Include="sql\Functions\dbo.fn_total_vaccinations2.sql" />
@@ -163,7 +163,8 @@
     <Build Include="sql\Functions\test.fnGetTstPassCntKey.sql" />
     <Build Include="sql\Functions\test.fnSplitQualifiedName.sql" />
     <Build Include="sql\Misc\tSQLtCLR.sql" />
-    <Build Include="sql\Scripts\PostDeployment.sql" />
+    <Build Include="Scripts\PostDeployment.sql" />
+    <None Include="Scripts\PreDeployment.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="DatabaseName">

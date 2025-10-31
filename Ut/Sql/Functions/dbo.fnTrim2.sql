@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- =============================================
@@ -19,4 +18,3 @@ BEGIN
    RETURN dbo.fnRTrim2(dbo.fnLTrim2(@str, @trim_chr), @trim_chr);
 END
 GO
-

@@ -1,14 +1,11 @@
 SET ANSI_NULLS ON
-
 SET QUOTED_IDENTIFIER ON
-
 GO
-
 -- ==============================================================================================
 -- Author:      Terry Watts
 -- Create date: 16-APR-2024
 -- Description: creates the test helper code for a scalar fn
-
+--
 -- Preconditions:
 --    test.rtnDetails and test.ParamDetails populated
 --
@@ -58,6 +55,4 @@ EXEC tSQLt.RunAll;
 EXEC tSQLt.Run 'test.test_??';
     @inp_input_str,  @inp_sep,  @inp_ndx
 */
-
-
 GO

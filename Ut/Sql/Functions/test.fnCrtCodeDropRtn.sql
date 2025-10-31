@@ -1,5 +1,4 @@
 SET ANSI_NULLS ON
-GO
 SET QUOTED_IDENTIFIER ON
 GO
 -- ======================================================
@@ -24,12 +23,14 @@ BEGIN
       ,@rtn_ty       NCHAR(1)
       ,@hlpr_rtn_nm  NVARCHAR(100)
       ,@tst_rtn_nm   NVARCHAR(100)
+
    SELECT
        @ad_stp       = ad_stp
       ,@rtn_ty       = rtn_ty
       ,@hlpr_rtn_nm  = hlpr_rtn_nm
       ,@tst_rtn_nm   = tst_rtn_nm
     FROM test.RtnDetails;
+
    INSERT INTO @t( line) VALUES
    (
       CONCAT
@@ -38,6 +39,7 @@ BEGIN
        ,IIF(@ad_stp=1, ' -- fnCrtCodeDropRtn','')
       )
    );
+
    RETURN;
 END
 /*
@@ -47,4 +49,3 @@ END
    SELECT * FROM test.RtnDetails;
 */
 GO
-
